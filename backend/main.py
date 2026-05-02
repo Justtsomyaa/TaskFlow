@@ -23,7 +23,7 @@ import os
 
 @app.get("/", response_class=HTMLResponse)
 def root():
-    path = os.path.join(os.path.dirname(__file__), "..", "frontend", "login.html")
+    path = os.path.join(os.path.dirname(__file__), "frontend", "login.html")
     if not os.path.exists(path):
         return HTMLResponse("<h1>API is running</h1><p>Frontend not found at: " + path + "</p>")
     with open(path) as f:
@@ -31,7 +31,7 @@ def root():
 
 @app.get("/dashboard", response_class=HTMLResponse)
 def dashboard_page():
-    path = os.path.join(os.path.dirname(__file__), "..", "frontend", "dashboard.html")
+    path = os.path.join(os.path.dirname(__file__), "frontend", "dashboard.html")
     if not os.path.exists(path):
         return HTMLResponse("<h1>Dashboard not found</h1><p>Path: " + path + "</p>")
     with open(path) as f:
@@ -39,7 +39,7 @@ def dashboard_page():
 
 @app.get("/login", response_class=HTMLResponse)
 def login_page():
-    path = os.path.join(os.path.dirname(__file__), "..", "frontend", "signup.html")
+    path = os.path.join(os.path.dirname(__file__), "frontend", "signup.html")
     if not os.path.exists(path):
         return HTMLResponse("<h1>Signup not found</h1><p>Path: " + path + "</p>")
     with open(path) as f:

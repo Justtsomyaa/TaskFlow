@@ -38,9 +38,6 @@ def signup_page():
     path = os.path.join(os.path.dirname(__file__), "..", "frontend", "signup.html")
     with open(path) as f:
         return f.read()
-@app.get("/")
-def home():
-    return {"message": "TaskFlow API is running"}
     
 def get_db():
     db = SessionLocal()

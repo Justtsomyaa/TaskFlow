@@ -18,7 +18,26 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+from fastapi.responses import HTMLResponse, RedirectResponse
+import os
 
+@app.get("/", response_class=HTMLResponse)
+def root():
+    path = os.path.join(os.path.dirname(__file__), "..", "frontend", "login.html")
+    with open(path) as f:
+        return f.read()
+
+@app.get("/dashboard", response_class=HTMLResponse)
+def dashboard_page():
+    path = os.path.join(os.path.dirname(__file__), "..", "frontend", "dashboard.html")
+    with open(path) as f:
+        return f.read()
+
+@app.get("/signup", response_class=HTMLResponse)
+def signup_page():
+    path = os.path.join(os.path.dirname(__file__), "..", "frontend", "signup.html")
+    with open(path) as f:
+        return f.read()
 @app.get("/")
 def home():
     return {"message": "TaskFlow API is running"}

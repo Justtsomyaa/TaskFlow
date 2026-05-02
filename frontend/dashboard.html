@@ -683,7 +683,7 @@ body.system-active .sidebar { box-shadow: 4px 0 30px rgba(108,99,255,0.08); }
 <div class="toast" id="toast"></div>
 
 <script>
-const API = "http://127.0.0.1:8000";
+const API = window.location.origin;
 let allTasks = [], allUsers = [], allProjects = [];
 let currentFilter = 'all';
 let currentTheme = localStorage.getItem('theme') || 'dark';
